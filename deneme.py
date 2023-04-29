@@ -1,1 +1,2 @@
 print("deneme")
+print("naber")
