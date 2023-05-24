@@ -27,7 +27,7 @@ def main():
                 "nav-link-selected": {"background-color": "black"}, })
     # pages
     if option == menu_list[0]:
-        st.title("Spotify Recommender Machine")
+        st.title("Spotiuul")
         with st.expander("Here's how to find any Song URL in Spotify"):
             st.write(""" 
                         1. Search for Song on the Spotify app
