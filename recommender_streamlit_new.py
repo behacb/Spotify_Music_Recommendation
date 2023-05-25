@@ -13,7 +13,12 @@ import pandas as pd
 
 def main():
 
-    df = pd.read_parquet("final_df.parquet")
+    df_1=pd.read_parquet("final_df_1.parquet")
+    df_2=pd.read_parquet("final_df_2.parquet")
+    df_3=pd.read_parquet("final_df_3.parquet")
+    df_4=pd.read_parquet("final_df_4.parquet")
+    df_5=pd.read_parquet("final_df_5.parquet")
+    df=pd.concat([df_1,df_2,df_3,df_4,df_5],ignore_index=True)
     df.drop("Unnamed: 0", axis=1, inplace=True)
     st.set_page_config(page_title="Spotiuul", page_icon="musical_note", layout="centered")
     img = Image.open("Image2.jpg")
