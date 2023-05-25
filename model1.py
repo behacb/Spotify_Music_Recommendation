@@ -18,4 +18,4 @@ def model_1(df,song_1):
         Fresult_1_preview_url.append(aa["tracks"][i]["id"])
 
     df.drop("sim", axis=1, inplace=True)
-    return Fresult_1_name, Fresult_1_artistname,Fresult_1_preview_url,Fresult_1_image
+    return Fresult_1_preview_url
