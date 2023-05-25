@@ -26,11 +26,11 @@ def main():
                         2. Right Click on the Song you like
                         3. Click "Share"
                         4. Choose "Copy link to Song" """)
-    model = st.radio("Select Model", ("Model 1", "Model 2"))
+    model = st.radio("Select Model", ("Düz Yol Yöntemi", "Merdiven Yöntemi"))
     url = st.text_input(label="URL",placeholder="Enter Spotify Song Url")
     if st.checkbox("Get Recommendations"):
         song = get_song_features(url)
-        if model == "Model 1":
+        if model == "Düz Yol Yöntemi":
             last_result_name,last_result_artistname,last_result_preview_url,last_result_image = model_1(df, song)
             for i in range(10):
                 st.image(last_result_image[i])
@@ -40,7 +40,7 @@ def main():
                 st.write("\n")
                 st.write("\n")
 
-        if model == "Model 2":
+        if model == "Merdiven Yöntemi":
             last_result_name,last_result_artistname,last_result_preview_url,last_result_image = model_2(df, song)
             for i in range(10):
                 st.image(last_result_image[i])
