@@ -18,7 +18,7 @@ def model_1(df,song_1):
     for i in range(10):
         Fresult_1_name.append(aa['tracks'][i]['name'])
         Fresult_1_artistname.append(aa["tracks"][i]["album"]["artists"][0]["name"])
-        Fresult_1_preview_url.append(aa["tracks"][i]["preview_url"])
+        Fresult_1_preview_url.append(aa["tracks"][i]["id"])
         try:
             Fresult_1_image.append(aa["tracks"][i]["album"]["images"][0]["url"])
         except:
