@@ -11,7 +11,7 @@ from aud_feat import get_song_features
 import pandas as pd
 
 def main():
-    df = pd.read_csv("final_track_list.csv")
+    df = pd.read_csv("final_df.parquet")
     df.drop("Unnamed: 0", axis=1, inplace=True)
     st.set_page_config(page_title="Spotify Recommender", page_icon="musical_note", layout="centered")
     # --SideBar------
