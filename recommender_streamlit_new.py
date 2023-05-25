@@ -13,7 +13,7 @@ import pandas as pd
 def main():
     df = pd.read_parquet("final_df.parquet")
     df.drop("Unnamed: 0", axis=1, inplace=True)
-    st.set_page_config(page_title="Spotify Recommender", page_icon="musical_note", layout="centered")
+    st.set_page_config(page_title="Spotiuul", page_icon="musical_note", layout="centered")
     # --SideBar------
     menu_list = ["Home", "Get Recommendations", "About"]
     with st.sidebar:
