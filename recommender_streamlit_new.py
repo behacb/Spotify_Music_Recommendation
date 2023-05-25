@@ -36,11 +36,8 @@ def main():
     if st.checkbox("Get Recommendations"):
         song = get_song_features(url)
         if model == "Düz Yol Yöntemi":
-            last_result_name,last_result_artistname,last_result_preview_url,last_result_image = model_1(df, song)
+            last_result_preview_url = model_1(df, song)
             for i in range(10):
-                st.image(last_result_image[i])
-                st.write(f"Song Name: {last_result_name[i]}")
-                st.write(f"Artist Name: {last_result_artistname[i]}")
                 uri_link = "https://open.spotify.com/embed/track/" + last_result_preview_url[
                     i] + "?utm_source=generator&theme=0"
                 components.iframe(uri_link, height=80)
@@ -48,11 +45,8 @@ def main():
                 st.write("\n")
 
         if model == "Merdiven Yöntemi":
-            last_result_name,last_result_artistname,last_result_preview_url,last_result_image = model_2(df, song)
+            last_result_preview_url= model_2(df, song)
             for i in range(10):
-                st.image(last_result_image[i])
-                st.write(f"Song Name: {last_result_name[i]}")
-                st.write(f"Artist Name: {last_result_artistname[i]}")
                 uri_link = "https://open.spotify.com/embed/track/" + last_result_preview_url[
                     i] + "?utm_source=generator&theme=0"
                 components.iframe(uri_link, height=80)
