@@ -11,17 +11,11 @@ def model_1(df,song_1):
     df_model = df.sort_values('sim', ascending=True)
     qq = df_model.groupby('id_artists').head(10).id.head(10)  # to limit recmmendation by same artist
     aa = sp.tracks(qq[0:10])
-    Fresult_1_name = []
-    Fresult_1_artistname=[]
+
     Fresult_1_preview_url=[]
-    Fresult_1_image=[]
+
     for i in range(10):
-        Fresult_1_name.append(aa['tracks'][i]['name'])
-        Fresult_1_artistname.append(aa["tracks"][i]["album"]["artists"][0]["name"])
         Fresult_1_preview_url.append(aa["tracks"][i]["id"])
-        try:
-            Fresult_1_image.append(aa["tracks"][i]["album"]["images"][0]["url"])
-        except:
-            None
+
     df.drop("sim", axis=1, inplace=True)
     return Fresult_1_name, Fresult_1_artistname,Fresult_1_preview_url,Fresult_1_image
