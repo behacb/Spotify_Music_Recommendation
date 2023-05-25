@@ -9,7 +9,7 @@ sp = sp.Spotify(client_credentials_manager=client_credentials_manager)
 def model_2(df,song_1):
     df['sim'] = manhattan_distances(df.drop(['id', 'id_artists'], axis=1), song_1.drop(['id', 'id_artists'], axis=1))
     df_model = df.sort_values('sim', ascending=True)
-    qq = df_model.groupby('id_artists').head(5).id.head(10)  # to limit recmmendation by same artist
+    qq = df_model.groupby('id_artists').head(10).id.head(10)  # to limit recmmendation by same artist
     aa = sp.tracks(qq[0:10])
     Fresult_2_name = []
     Fresult_2_artistname=[]
