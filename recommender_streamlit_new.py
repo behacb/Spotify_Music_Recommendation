@@ -1,5 +1,5 @@
 import streamlit as st
-# import streamlit.components.v1 as components
+import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
 import spotipy as sp
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -11,7 +11,7 @@ from aud_feat import get_song_features
 import pandas as pd
 
 def main():
-    df = pd.read_parquet("final_df.parquet")
+    df = pd.read_csv("final_track_list.csv")
     df.drop("Unnamed: 0", axis=1, inplace=True)
     st.set_page_config(page_title="Spotify Recommender", page_icon="musical_note", layout="centered")
     # --SideBar------
@@ -27,7 +27,7 @@ def main():
                 "nav-link-selected": {"background-color": "black"}, })
     # pages
     if option == menu_list[0]:
-        st.title("Spotiuul")
+        st.title("Spotify Recommender Machine")
         with st.expander("Here's how to find any Song URL in Spotify"):
             st.write(""" 
                         1. Search for Song on the Spotify app
@@ -39,11 +39,24 @@ def main():
         if st.checkbox("Get Recommendations"):
             song = get_song_features(url)
             if model == "Model 1":
-                last_result = model_1(df, song)
-                st.text(last_result)
+                last_result_name,last_result_artistname,last_result_preview_url,last_result_image = model_1(df, song)
+                for i in range(10):
+                    st.image(last_result_image[i])
+                    st.write(f"Song Name: {last_result_name[i]}")
+                    st.write(f"Artist Name: {last_result_artistname[i]}")
+                    st.audio(last_result_preview_url[i])
+                    st.write("\n")
+                    st.write("\n")
+
             if model == "Model 2":
-                last_result = model_2(df, song)
-                st.text(last_result)
+                last_result_name,last_result_artistname,last_result_preview_url,last_result_image = model_2(df, song)
+                for i in range(10):
+                    st.image(last_result_image[i])
+                    st.write(f"Song Name: {last_result_name[i]}")
+                    st.write(f"Artist Name: {last_result_artistname[i]}")
+                    st.audio(last_result_preview_url[i])
+                    st.write("\n")
+                    st.write("\n")
 
 
 
