@@ -41,7 +41,9 @@ def main():
                 st.image(last_result_image[i])
                 st.write(f"Song Name: {last_result_name[i]}")
                 st.write(f"Artist Name: {last_result_artistname[i]}")
-                st.audio(last_result_preview_url[i])
+                uri_link = "https://open.spotify.com/embed/track/" + last_result_preview_url[
+                    i] + "?utm_source=generator&theme=0"
+                components.iframe(uri_link, height=80)
                 st.write("\n")
                 st.write("\n")
 
@@ -51,7 +53,9 @@ def main():
                 st.image(last_result_image[i])
                 st.write(f"Song Name: {last_result_name[i]}")
                 st.write(f"Artist Name: {last_result_artistname[i]}")
-                st.audio(last_result_preview_url[i])
+                uri_link = "https://open.spotify.com/embed/track/" + last_result_preview_url[
+                    i] + "?utm_source=generator&theme=0"
+                components.iframe(uri_link, height=80)
                 st.write("\n")
                 st.write("\n")
 
